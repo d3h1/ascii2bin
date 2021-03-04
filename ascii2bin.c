@@ -60,6 +60,6 @@ int main (int argc, char * argv[], char ** envp)
         return 1;                                           
     }
 }
-    printf("%u\n", number);
+    printf("%d\n", number);
     return 0;
 }
