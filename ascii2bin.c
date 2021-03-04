@@ -8,27 +8,31 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include <unistd.h>
+#include <sys/types.h>
 
-int main(int argc, char * argv[], char ** envp)
+#define max_int (255)
+#define byte unsigned char
+
+int main (int argc, char * argv[], char ** envp)
 {
+    int offset = 0x30; // 0x38 = 48
+    byte ascii_value;
+    int number = 0;
+    int digit;
 
-	char ascii_value;
-	char digit;
-	int count = 0;
-	int offset = 48;
-	int number = 0;
-	int retval;
+    if(retval != 0 || retval != 1)
+    {
+        fprintf(stderr, "Mistake found, look at it again\n"); 
+        return 1;
+    }
+    
+    int retval = read(0, &ascii_value, 1);
+    while (retval == 1)
+        digit = ascii_value - offset;
+        number = (number << 1) + digit;  
+        retval = read(0, &ascii_value, 1);
+        
+    printf("%u\n", number);
+    return 0;
 
-retval = read(0, &ascii_value, 1);
-{
-	while (retval == 1)
-		count++;
-}
-	
-digit = ascii_value - offset;
-number = (number << 1) + digit;
-retval = read(0, &ascii_value, 1);
-
-printf("%u\n", number);
-return 0;
 }
