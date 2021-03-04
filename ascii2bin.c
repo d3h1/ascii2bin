@@ -18,7 +18,7 @@ int main (int argc, char * argv[], char ** envp)
         char ascii_value = 0;
         char offset = 0x30;                 
         char digit = 0;
-        unsigned int number = 0;  
+        int number = 0;  
         int retval = 0;
         
         retval = read(0, &ascii_value, 1); 
@@ -60,6 +60,6 @@ int main (int argc, char * argv[], char ** envp)
         return 1;                                           
     }
 }
-    printf("%d\n", number);
+    printf("%d\n", number)
     return 0;
 }
